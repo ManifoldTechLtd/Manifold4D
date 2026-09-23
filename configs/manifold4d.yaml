@@ -1,0 +1,40 @@
+# Manifold4D inference configuration.
+#
+# The released model builds on Wan2.1-T2V-14B. Every model/asset path lives in
+# the `paths` section below and can be overridden by an environment variable
+# or a CLI flag, with priority:  CLI flag > environment variable > this file.
+
+paths:
+  # Wan2.1 source tree providing the `wan.*` modules (base-model code).
+  wan_src: "external/Wan2.1"
+  # Wan2.1-T2V-14B base model directory (diffusion weights + config.json).
+  wan_checkpoint: "checkpoints/wan/Wan2.1-T2V-14B"
+  # Wan2.1 VAE weights. Optional: defaults to <wan_checkpoint>/Wan2.1_VAE.pth.
+  # vae_checkpoint: "checkpoints/wan/Wan2.1-T2V-14B/Wan2.1_VAE.pth"
+  # Source file defining the Wan2.1 `WanVAE` class. Optional: defaults to
+  # <wan_src>/wan/modules/vae.py.
+  # vae_module: "external/Wan2.1/wan/modules/vae.py"
+  # Pre-encoded CFG negative prompt (see scripts/preprocess/encode_neg_prompt.py).
+  neg_prompt_emb: "configs/neg_prompt_emb.pt"
+
+model:
+  # Two-stream conditioning: [output | source] joint attention with
+  # Plucker ray injection on the input.
+  use_text: true                     # T5 text conditioning
+  use_plucker: true
+  plucker_share_encoder: false       # one CameraEncoder per block
+  camera_injection: "input_x_add"
+  mask_channels: 2                   # alpha + motion, avgpool-packed at latent res
+  mask_pack_mode: avgpool
+  # RoPE stream separation: 49-frame clips map to 13 latent frames; offset 31
+  # places the source stream at frames [31, 44) so it is not read as a
+  # temporal continuation of the output stream [0, 13).
+  positional_embedding_offset: 31
+  cond_stream_t: "honest"
+  # Prior strength: the ODE starts from a blend of the rendered proxy
+  # and the ground-truth endpoint, weighted by the alpha-mask coverage.
+  prior_sigma: 0.3
+
+inference:
+  guidance_scale: 5.0                # Wan2.1-T2V-14B native CFG scale
+  timestep_shift: 5.0                # Wan2.1 native flow-matching shift

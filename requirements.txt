@@ -1,0 +1,32 @@
+# ── Core ──────────────────────────────────────────────────────────────
+# Verified environment (fresh-install tested): Python 3.10,
+# torch 2.8.0+cu128, flash-attn 2.8.3.post1, diffusers 0.40,
+# transformers 5.x, numpy 2.x — see README "Installation" for the
+# recommended install order (torch + flash-attn wheels first).
+# torch upper bound: 2.14.0+cu130 wheels bundle cuDNN 9.24 whose
+# runtime-compiled engines fail to load on some driver/GPU combos
+# (conv3d errors inside the Wan2.1 VAE).
+torch>=2.1,<2.14
+torchvision
+diffusers            # used by the 14B model definitions (manifold4d.model14b)
+numpy
+einops
+pyyaml
+opencv-python
+pillow
+scipy
+tqdm
+imageio              # video I/O (scripts/preprocess)
+transformers         # Qwen2.5-VL captioning (scripts/preprocess)
+easydict             # Wan2.1 configs (wan/configs/wan_t2v_14B.py)
+ftfy                 # Wan2.1 T5 tokenizer (wan/utils/t5_tokenizer.py)
+
+# flash-attn (REQUIRED for the 14B model at full resolution): installed
+# separately — see README "Installation" for a prebuilt-wheel recipe
+# (e.g. torch 2.8 + cu128 + Python 3.10). Without it, inference falls
+# back to a much more memory-hungry sdpa path that OOMs on 80GB GPUs.
+
+# ── External dependencies (not installable via pip) ───────────────────
+# Wan2.1 source tree (wan.* modules): git clone https://github.com/Wan-Video/Wan2.1 external/Wan2.1
+# VGGT-Omega:            external/vggt-omega-main (see README)
+# SAM3:                  external/sam3 (see README)
