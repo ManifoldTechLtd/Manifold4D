@@ -25,8 +25,10 @@ render_output/
 # ---- Exceptions: files required for the repo despite the patterns above ----
 # Negative-prompt embedding required for inference
 !configs/neg_prompt_emb.pt
-# Demo video embedded in the README
+# Demo assets embedded in the README
 !assets/Manifold4D_demo.mp4
+!assets/demo_poster.jpg
+!assets/pipeline.png
 
 # ---- Python ----
 __pycache__/

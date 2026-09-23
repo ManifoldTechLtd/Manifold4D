@@ -15,11 +15,13 @@ consistent with the scene's 3D geometry.
 This repository contains the **inference pipeline and released model weights**
 only (training code is not included).
 
+</div>
+
 ## Demo
 
-<div align="center">
-  <video src="assets/Manifold4D_demo.mp4" controls muted width="100%"></video>
-</div>
+[![Demo video](assets/demo_poster.jpg)](assets/Manifold4D_demo.mp4)
+
+Click the image to play the full demo video on GitHub.
 
 ## Overview
 
@@ -33,6 +35,10 @@ From a single source video, the pipeline runs end-to-end:
 3. **Generate** — for each trajectory: render the point-cloud proxy from the
    target view, run the Manifold4D diffusion model (Wan2.1-T2V-14B base with
    our trained modules), and decode the final video.
+
+## Pipeline
+
+![Manifold4D pipeline](assets/pipeline.png)
 
 ## Installation
 
