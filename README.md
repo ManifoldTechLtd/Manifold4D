@@ -1,21 +1,25 @@
-# Manifold4D
+# Manifold4D: Denoising on Point Cloud Rendered Manifolds for Video Re-shooting
 
-<div align="center">
+[![Project Page](https://img.shields.io/badge/Project-Page-yellow?logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ5ZWxsb3ciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxsaW5lIHgxPSIyIiB5MT0iMTIiIHgyPSIyMiIgeTI9IjEyIi8+PHBhdGggZD0iTTEyIDJhMTUuMyAxNS4zIDAgMCAxIDQgMTAgMTUuMyAxNS4zIDAgMCAxLTQgMTAgMTUuMyAxNS4zIDAgMCAxLTQtMTAgMTUuMyAxNS4zIDAgMCAxIDQtMTB6Ii8+PC9zdmc+)](https://yongxuqixiang.github.io/Manifold4D-Project-Page/)
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b?logo=arxiv&logoColor=red)](https://arxiv.org/abs/2608.28174)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Manifold4D-blue)](https://huggingface.co/manifoldtech/Manifold4D)
 
-[arXiv](https://arxiv.org/abs/2608.28174) | [Project Page](https://yongxuqixiang.github.io/Manifold4D-Project-Page/) | [Weights](https://huggingface.co/manifoldtech/Manifold4D)
+[Yongqi Mao](https://yongxuqixiang.github.io/yongqi/)<sup>1,2</sup>, Zijia Dai<sup>2,3</sup>, Zhishuo Liu<sup>2,4</sup>, Wei Xu<sup>2</sup>, Kaiwei Wang<sup>1</sup>, Guotao Meng<sup>2</sup><br/>
+<sup>1</sup>Zhejiang University, <sup>2</sup>[Manifold Tech](https://www.3dmanifold.com/), <sup>3</sup>ShanghaiTech University, <sup>4</sup>University of Cambridge
 
-Official inference code and model weights for **Manifold4D**, a framework for
-*video re-shooting*: given a single monocular source video, Manifold4D
-re-renders the underlying dynamic scene from arbitrary novel camera
-trajectories. The core idea is to denoise on a **point-cloud-rendered
-manifold** — a coarse 3D proxy of the scene rendered from the target view —
-instead of raw video pixels, which makes long-range camera control
-consistent with the scene's 3D geometry.
+**Manifold4D** is a *video re-shooting* framework: given a single monocular
+source video, it re-renders the underlying dynamic scene from arbitrary novel
+camera trajectories. The core idea is to denoise on a point-cloud-rendered
+manifold — a coarse 3D proxy of the scene rendered from the target view —
+instead of raw video pixels, so long-range camera control stays consistent
+with the scene's 3D geometry.
 
 This repository contains the **inference pipeline and released model weights**
 only (training code is not included).
 
-</div>
+## Updates
+
+- **2026/09/23:** Inference code and model weights have been released!
 
 ## Demo
 
