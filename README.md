@@ -19,11 +19,7 @@ only (training code is not included).
 
 ## Demo
 
-
 https://github.com/user-attachments/assets/e02e9915-160e-4184-9259-745d3fcb9d63
-
-
-Click the image to play the full demo video on GitHub.
 
 ## Overview
 

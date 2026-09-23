@@ -26,8 +26,6 @@ render_output/
 # Negative-prompt embedding required for inference
 !configs/neg_prompt_emb.pt
 # Demo assets embedded in the README
-!assets/Manifold4D_demo.mp4
-!assets/demo_poster.jpg
 !assets/pipeline.png
 
 # ---- Python ----
