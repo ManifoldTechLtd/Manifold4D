@@ -23,7 +23,9 @@ only (training code is not included).
 
 ## Demo
 
-https://github.com/user-attachments/assets/e02e9915-160e-4184-9259-745d3fcb9d63
+
+https://github.com/user-attachments/assets/563fd3dd-7802-4db8-afe0-8a92d6db8ebd
+
 
 ## Overview
 
