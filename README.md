@@ -123,9 +123,9 @@ Wan2.1-T2V-14B base) are needed:
 
 ```bash
 python -m manifold4d.demo \
-    --demo_dir    assets/demo/gold-fish \
+    --demo_dir    assets/demo/snowboard \
     --checkpoint  checkpoints/manifold4d \
-    --output_dir  output/demo_gold-fish \
+    --output_dir  output/demo_snowboard \
     --num_steps 20
 ```
 
