@@ -27,6 +27,8 @@ render_output/
 !configs/neg_prompt_emb.pt
 # Demo assets embedded in the README
 !assets/pipeline.png
+# Bundled demo scenes (source/render/masks/text/trajectory)
+!assets/demo/**
 
 # ---- Python ----
 __pycache__/

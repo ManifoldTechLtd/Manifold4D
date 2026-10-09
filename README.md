@@ -20,6 +20,10 @@ only (training code is not included).
 ## Updates
 
 - **2026/09/23:** Inference code and model weights have been released!
+- **2026/10/09:** Three bundled demo scenes + a lightweight demo entry
+  (`python -m manifold4d.demo`) — test the model without VGGT-Omega / SAM3 /
+  Qwen2.5-VL. Full preprocessed evaluation scenes (with depth) are released
+  on [HuggingFace](https://huggingface.co/datasets/manifoldtech/Manifold4D-Eval).
 
 ## Demo
 
@@ -104,6 +108,40 @@ Download the following weights:
 | VGGT-Omega 1B                    | `checkpoints/vggt_omega_1b_512.pt`              | [facebook/VGGT-Omega](https://huggingface.co/facebook/VGGT-Omega) (gated; request access)                                                                                  |
 | SAM3.1                           | `external/sam3/ckpt/sam3.1/sam3.1_multiplex.pt` | per the SAM3 repo                                                                                                                                                         |
 | Qwen2.5-VL-7B                    | `checkpoints/Qwen2.5-VL-7B-Instruct`            | [Qwen/Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) — scene captioning (or hand-write `caption.txt`)                                      |
+
+## Quick demo (no preprocessing)
+
+Three pre-built demo scenes ship with the repository under
+[`assets/demo/`](assets/demo/) — `snowboard` (from our own captures),
+`woman-phone` and `rabbit-basket` (from the Vista4D evaluation set).
+Each bundle contains the exact conditioning inputs the model consumes:
+source video, point-cloud render in the target view, alpha/motion masks,
+camera trajectories, and the pre-encoded T5 text embedding. You can run the
+released model **without** VGGT-Omega, SAM3, or Qwen2.5-VL — only the
+inference dependencies above and the two weight sets (Manifold4D modules +
+Wan2.1-T2V-14B base) are needed:
+
+```bash
+python -m manifold4d.demo \
+    --demo_dir    assets/demo/gold-fish \
+    --checkpoint  checkpoints/manifold4d \
+    --output_dir  output/demo_gold-fish \
+    --num_steps 20
+```
+
+| Scene | Frames | Content |
+| ------------------------------------------------ | ------ | ------------------------------- |
+| [`snowboard`](assets/demo/snowboard) | 65 | snowboarder on a sunny slope |
+| [`woman-phone`](assets/demo/woman-phone) | 49 | woman on the phone, lateral move |
+| [`rabbit-basket`](assets/demo/rabbit-basket) | 49 | white rabbit in a basket, crane move |
+
+To demo your own scene this way, export a bundle from a preprocessed scene
+with `scripts/export_demo_scene.py` (see its docstring).
+
+The full preprocessed evaluation scenes used in the paper — including the
+VGGT-Omega depth (`predictions.npz`) that the bundles above omit, plus all
+novel-view trajectories — are released on HuggingFace at
+[manifoldtech/Manifold4D-Eval](https://huggingface.co/datasets/manifoldtech/Manifold4D-Eval).
 
 ## Quick start
 
