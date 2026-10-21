@@ -26,9 +26,7 @@ only (training code is not included).
   on [HuggingFace](https://huggingface.co/datasets/manifoldtech/Manifold4D-Eval).
 
 ## Demo
-
-
-https://github.com/user-attachments/assets/563fd3dd-7802-4db8-afe0-8a92d6db8ebd
+https://github.com/user-attachments/assets/3d22a67d-260d-44f5-9244-76d4d3e2b62e
 
 
 ## Overview
