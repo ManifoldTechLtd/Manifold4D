@@ -50,8 +50,7 @@ From a single source video, the pipeline runs end-to-end:
 
 ## Installation
 
-Requirements: **Python >= 3.10** and one CUDA GPU (we use A100-80GB; the
-diffusion loop peaks around 47 GB at 480x832).
+Requirements: **Python >= 3.10** and one CUDA GPU.
 
 ### 1. This repository
 
