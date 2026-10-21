@@ -602,10 +602,12 @@ def parse_args(argv=None) -> argparse.Namespace:
     p.add_argument("--vae_checkpoint", type=str, default=None,
                    help="Wan2.1 VAE checkpoint. Falls back to the "
                         "`vae_checkpoint` key in the config `paths:` section.")
-    # Resolution & frames
-    p.add_argument("--height", type=int, default=480, help="VAE/render height.")
-    p.add_argument("--width", type=int, default=832, help="VAE/render width.")
-    p.add_argument("--video_length", type=int, default=81,
+    # Resolution & frames.  Defaults follow the evaluation setting: 49 frames
+    # (13 latent frames under the Wan VAE's 4x temporal stride, matching the
+    # RoPE offset in configs/manifold4d.yaml) at a 384x672 canvas.
+    p.add_argument("--height", type=int, default=384, help="VAE/render height.")
+    p.add_argument("--width", type=int, default=672, help="VAE/render width.")
+    p.add_argument("--video_length", type=int, default=49,
                    help="Frames to generate (must be 4n+1).")
     p.add_argument("--frame_sampling", choices=["linspace", "window"],
                    default="linspace",
