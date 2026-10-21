@@ -28,6 +28,8 @@ only (training code is not included).
 ## Demo
 https://github.com/user-attachments/assets/3d22a67d-260d-44f5-9244-76d4d3e2b62e
 
+The video above is a compressed 720p preview. A clearer, full-resolution
+version is on the [project page](https://yongxuqixiang.github.io/Manifold4D-Project-Page/).
 
 ## Overview
 
