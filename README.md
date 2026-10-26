@@ -23,7 +23,7 @@ only (training code is not included).
 - **2026/10/09:** Three bundled demo scenes + a lightweight demo entry
   (`python -m manifold4d.demo`) — test the model without VGGT-Omega / SAM3 /
   Qwen2.5-VL. 
-  **2026/10/25:** Full preprocessed evaluation scenes (with depth) are released
+- **2026/10/25:** Full preprocessed evaluation scenes (with depth) are released
   on [HuggingFace](https://huggingface.co/datasets/manifoldtech/Manifold4D-Eval).
 
 ## Demo
